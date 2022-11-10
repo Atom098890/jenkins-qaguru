@@ -49,3 +49,9 @@ test {
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
+
+task some_text(type: Test) {
+    useJUnitPlatform {
+        includeTags "someTest"
+    }
+}
