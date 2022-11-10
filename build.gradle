@@ -41,10 +41,22 @@ dependencies {
 //    testRuntimeOnly('org.slf4j:slf4j-simple:2.0.3')
 }
 
-test {
-    useJUnitPlatform()
+//test {
+//    useJUnitPlatform()
+//    systemProperties(System.getProperties())
+//}
+tasks.withType(Test) {
     systemProperties(System.getProperties())
+    useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
 }
+
 
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'

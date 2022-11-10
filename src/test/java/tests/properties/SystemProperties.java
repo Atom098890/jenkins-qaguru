@@ -31,7 +31,7 @@ public class SystemProperties {
     @Test
     @Tag("someTest")
     void someTest() {
-        String out = System.getProperty("some_text", "Def");
+        String out = System.getProperty("some_name", "Def");
         System.out.print("Hello " + out);
     }
 }
